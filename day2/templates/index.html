@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome {{ greeting }}!</title>
-    <link rel="stylesheet" href="https://unpkg.com/mvp.css"> 
+    <link rel="stylesheet" href="https://unpkg.com/mvp.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
 </head>
 <body>
-    <h1>Pokemon encyclopedia</h1>
+    <h1 id="uniqueElement" >Pokemon encyclopedia</h1>
     <table>
         <thead>
             {% for field in data[0].keys() %}
@@ -22,8 +23,12 @@
                 <td>
                     <a href="/{{ monster['#']}}">{{ value }}</a>
                 </td>
+                {% elif key == "Type 1" %}
+                <td class={{ value|lower }}>
+                    {{ value }}
+                </td>
                 {% else %}
-                <td>
+                <td class="idk">
                     {{ value }}
                 </td>
                 {% endif %}
