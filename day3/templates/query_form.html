@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Welcome {{ greeting }}!</title>
+        <link rel="stylesheet" href="https://unpkg.com/mvp.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <h1 id="uniqueElement">Pokemon encyclopedia</h1>
+        <form action="/" method="post">
+            <section>
+                <aside>
+                    <label for="selType">Select type</label>
+                    <select id="selType" name="type">
+                        {% for opt in types %}<option value="{{ opt }}">{{ opt }}</option>{% endfor %}
+                    </select>
+                    <label for="chkLegendary">Legendary [Y/N]?</label>
+                    <input type="checkbox" id="chkLegendary" name="legendary">
+                </aside>
+                <aside>
+                    <label for="health">Health points</label>
+                    <div>
+                        <label for="healthMin">Min</label>
+                        <input type="number" id="healthMin" name="healthMin" min="0" max="1000">
+                        <label for="healthMax">Max</label>
+                        <input type="number" id="healthMax" name="healthMax" min="0" max="1000">
+                    </div>
+                </aside>
+                <input type="submit" value="Submit query" id="btnQuery">
+            </section>
+        </form>
+    </body>
+</html>
