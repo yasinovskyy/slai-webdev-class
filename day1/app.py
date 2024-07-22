@@ -11,6 +11,6 @@ def index():
 
 
 @app.route("/<int:pok_id>")
-def datails(pok_id):
+def details(pok_id):
     data = read_csv("pokemon.csv")
     return data[pok_id]
