@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/mvp.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Creative Pokemon index</title>
+</head>
+<body>
+    <main>
+        <form method="post" action="/">
+            <section>
+                <aside>
+                    <label for="selGeneration">Generation</label>
+                    <select name="generation" id="selGeneration">
+                        <option value="any">Pick one</option>
+                        {% for gen in generations %}
+                        <option value="{{ gen }}">{{ gen }}</option>
+                        {% endfor %}
+                    </select>
+                    <label for="chkLegend">Legendary only</label>
+                    <input type="checkbox" name="legendary" id="chkLegend">
+                </aside>
+                <aside>
+                    <label for="divHealth">Health</label>
+                    <div id="divHealth">
+                        <input type="number" name="hp_min" min="0" max="1000">
+                        <input type="number" name="hp_max" min="0" max="1000">
+                    </div>
+                </aside>
+                <input type="submit" value="Submit query">
+            </section>
+        </form>
+    </main>
+</body>
+</html>

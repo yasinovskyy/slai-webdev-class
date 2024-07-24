@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/mvp.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Creative Pokemon index</title>
+</head>
+<body>
+    <main>
+        {% if data %}
+        <table>
+            <thead>
+                {% for field in data[0].keys() %}
+                <th>{{ field }}</th>
+                {% endfor %}
+            </thead>
+            {% for row in data %}
+            <tr>
+                {% for field, value in row.items() %}
+                {% if field in ["Type 1", "Type 2"] %}
+                <td class="{{ value|lower }}">{{ value }}</td>
+                {% elif field == "Name" %}
+                <td><a href="{{ url_for('details', pok_id=row['#']) }}">{{ value }}</a></td>
+                {% else %}
+                <td>{{ value }}</td>
+                {% endif %}
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        <p>Nothing found</p>
+        {% endif %}
+    </main>
+</body>
+</html>
