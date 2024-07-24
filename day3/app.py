@@ -40,6 +40,7 @@ def query(question):
             < int(question.get("hp_max", "1000"))
         ):
             continue
-        if "legendary" in question and monster["Legendary"] == "True":
-            result.append(monster)
+        if "legendary" in question and monster["Legendary"] == "False":
+            continue
+        result.append(monster)
     return result
