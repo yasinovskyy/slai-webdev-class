@@ -16,5 +16,5 @@ def pokemon_details(poke_number):
     return data
 
 
-@app.route("/<str:poke_type>")
+@app.route("/<string:poke_type>")
 def poke_type(poke_type): ...
