@@ -1,0 +1,30 @@
+<html>
+
+<head>
+    <title>Pokemon cards</title>
+    <link rel="stylesheet" href="https://unpkg.com/mvp.css">
+</head>
+
+<body>
+    <h1>Search!</h1>
+    <main>
+        <section>
+            <form action="/results" method="get">
+                <label>Type</label>
+                <select name="menu_type">
+                    <option value="dontcare">Any</option>
+                    {% for option in type_options %}
+                    <option value="{{option}}">{{ option }}</option>
+                    {% endfor %}
+                </select>
+                <label>Minimal speed</label>
+                <input type="number" name="min_speed" min="0" max="1000">
+                <label>Maximum speed</label>
+                <input type="number" name="max_speed" min="0" max="1000">
+                <input type="submit">
+            </form>
+        </section>
+    </main>
+</body>
+
+</html>

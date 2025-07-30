@@ -1,0 +1,42 @@
+<html>
+
+<head>
+    <title>Pokemon cards</title>
+    <link rel="stylesheet" href="https://unpkg.com/mvp.css">
+</head>
+
+<body>
+    <h1>Hello!</h1>
+    <main>
+        <section>
+            <table>
+                <thead>
+                    <tr>
+                        {% for key in template_data[0].keys() %}
+                        <th>{{ key }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for record in template_data %}
+                    {% if record["Legendary"] == "True" %}
+                    <tr style="color:red;">
+                        {% else %}
+                    <tr>
+                        {% endif %}
+                        {% for key, value in record.items() %}
+                        {% if key == "Name" %}
+                        <td><a href="{{url_for('pokemon_details', poke_number=record['#'])}}">{{ value }}</a></td>
+                        {% else %}
+                        <td title="{{ key }}">{{ value }}</td>
+                        {% endif %}
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+    </main>
+</body>
+
+</html>
