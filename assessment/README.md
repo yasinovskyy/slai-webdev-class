@@ -16,10 +16,11 @@ An application with the following functionality:
      - location (`select` element with `id` *selLocation*)
      - age (min and max) (`number` input elements with ids *numMinAge* and *numMaxAge* respectively)
 5. When searching, any criterion may be omitted by users.
-6. Animal name must be a link to its details page.
-7. Animal details page must contain a short description of the animal including its name as an `h3` element, species, and age.
-8. Every page must contain a link to the home and the search pages.
-9. Errors must be handled, the application must not crash.
+6. Search button with `id` *btnSubmit*.
+7. Animal name must be a link to its details page.
+8. Animal details page must contain a short description of the animal including its name as an `h3` element, species, and age.
+9. Every page must contain a link to the home and the search pages.
+10. Errors must be handled, the application must not crash.
 
 ## Demo
 
